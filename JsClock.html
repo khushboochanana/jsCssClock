@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+.content{
+  width: 500px;
+  height:500px;
+  background:#e41356;
+  position:relative
+}
+.clock{
+  border: 2px solid black;
+  border-radius: 100%;
+  width:150px;
+  height:150px;
+  top:50px;
+  left:40%;
+  position:absolute;
+  box-shadow: 0px -1px 17px 21px rgba(0,0,0,0.56);
+}
+.hand{
+  width:40%;
+  border:solid 1px;
+  top:50%;
+  left:10%;
+  position:absolute;
+  transform-origin:100%;
+  transform :rotate(90deg);
+  transition:all 0.02s;
+  transition-timing-function: cubic-bezier(0, 0.5, 0.58, 1);
+}
+.hour{
+  border-color:white;
+  width:30%;
+  left:20%;
+}
+.minute{
+  border-color:blue;
+}
+.second{
+    border:solid 0.5px;
+}
+.twelve{
+  left:44%;
+  top:2%;
+  position:absolute;
+}
+.six{
+  left:48%;
+  top:86%;
+  position:absolute;
+}
+.nine{
+  top:45%;
+    left:3%;
+  position:absolute;
+}
+.three{
+  top:45%;
+    left:90%;
+  position:absolute;
+}
+</style>
+</head>
+<body>
+
+  <div class="content"> 
+    <div class="clock">
+      <div class="twelve">12</div>
+     <div class="six">6</div>
+     <div class="nine">9</div>
+           <div class="three">3</div>
+
+      <div class="hand hour"></div>
+      <div class="hand minute"></div>
+      <div class="hand second"></div>
+    </div>
+  </div>
+<script id="jsbin-javascript">
+let secondHand=document.querySelector(".second")
+let minuteHand=document.querySelector(".minute")
+let hourHand=document.querySelector(".hour")
+setInterval(function(){
+  let date= new Date();
+  let sDegree=date.getSeconds()/60*360+90;
+  secondHand.style.transform =`rotate(${sDegree}deg)`
+  let mDegree=date.getMinutes()/60*360+90;
+  console.log(mDegree)
+  minuteHand.style.transform =`rotate(${mDegree}deg)`
+  let hDegree=date.getHours()/12*360+90;
+  hourHand.style.transform =`rotate(${hDegree}deg)`
+},1000)
+</script>
+
+
+<script id="jsbin-source-css" type="text/css">.content{
+  width: 500px;
+  height:500px;
+  background:#e41356;
+  position:relative
+}
+.clock{
+  border: 2px solid black;
+  border-radius: 100%;
+  width:150px;
+  height:150px;
+  top:50px;
+  left:40%;
+  position:absolute;
+  box-shadow: 0px -1px 17px 21px rgba(0,0,0,0.56);
+}
+.hand{
+  width:40%;
+  border:solid 1px;
+  top:50%;
+  left:10%;
+  position:absolute;
+  transform-origin:100%;
+  transform :rotate(90deg);
+  transition:all 0.02s;
+  transition-timing-function: cubic-bezier(0, 0.5, 0.58, 1);
+}
+.hour{
+  border-color:white;
+  width:30%;
+  left:20%;
+}
+.minute{
+  border-color:blue;
+}
+.second{
+    border:solid 0.5px;
+}
+.twelve{
+  left:44%;
+  top:2%;
+  position:absolute;
+}
+.six{
+  left:48%;
+  top:86%;
+  position:absolute;
+}
+.nine{
+  top:45%;
+    left:3%;
+  position:absolute;
+}
+.three{
+  top:45%;
+    left:90%;
+  position:absolute;
+}</script>
+
+<script id="jsbin-source-javascript" type="text/javascript">let secondHand=document.querySelector(".second")
+let minuteHand=document.querySelector(".minute")
+let hourHand=document.querySelector(".hour")
+setInterval(function(){
+  let date= new Date();
+  let sDegree=date.getSeconds()/60*360+90;
+  secondHand.style.transform =`rotate(${sDegree}deg)`
+  let mDegree=date.getMinutes()/60*360+90;
+  console.log(mDegree)
+  minuteHand.style.transform =`rotate(${mDegree}deg)`
+  let hDegree=date.getHours()/12*360+90;
+  hourHand.style.transform =`rotate(${hDegree}deg)`
+},1000)
+</script></body>
+</html>
